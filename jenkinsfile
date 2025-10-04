@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Build code using Maven to compile and package code'
+            }
+        }
+        stage('Unit and Integration Tests') {
+            steps {
+                echo 'Run unit tests with JUnit to ensure code works as expected'
+                echo 'Run integration tests with Selenium to ensure application components work together as expected'
+            }
+        }
+        stage('Code Analysis') {
+            steps {
+                echo 'Use SonarQube to analyse source code and ensure adherence to industry standards'
+            }
+        }
+        stage('Security Scan') {
+            steps {
+            steps {
+                echo 'Perform security scan using Trivy to detect vulnerabilities'
+            }
+            }
+        }
+        stage('Deploy to Staging') {
+            steps {
+                echo 'Deploy application to AWS EC2 for staging using Ansible'
+            }
+        }
+        stage('Integration Tests on Staging') {
+            steps {
+                echo "Run integration tests on staging environment using Postman to validate functionality"
+            }
+        }
+        stage('Deploy to Production') {
+            steps {
+                echo "Deploy verified application to production server using Ansible"
+            }
+        }
+    }
+}
