@@ -22,7 +22,6 @@ pipeline {
             steps {
                 echo 'Perform security scan using Trivy to detect vulnerabilities'
             }
-            }
         }
         stage('Deploy to Staging') {
             steps {
